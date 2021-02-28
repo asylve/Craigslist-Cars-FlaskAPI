@@ -36,7 +36,6 @@ Fiona==1.8.13.post1
 flake8==3.8.4
 Flask==1.1.2
 future==0.18.2
-GDAL==3.0.2
 geographiclib==1.50
 geopandas==0.8.1
 geoplot==0.4.1
