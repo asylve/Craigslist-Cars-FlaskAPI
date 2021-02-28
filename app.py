@@ -29,10 +29,7 @@ def predict():
     
     #load in model and make a prediction
     model = decompress_pickle('model_file.pbz2')['model']
-    #model = pickle.load(open('model_file.p', 'rb'))['model']
-    #model = load_models()
     prediction = model.predict(car)[0]
-    #response = json.dumps({'response': prediction})
     
     yr = car['year'][0]
     make = car['make_'][0]
@@ -59,8 +56,6 @@ def scrape_url(url):
         
     car_df = pd.DataFrame(columns = clean_params['columns']) #create an empty dataframe to hold the all the car data
     try: #in case an error is thrown on some vehicle, this will stop the whole process from failing
-        #price = entry.find('span', class_='result-price').text #price of the car
-        #title = entry.find('a', class_='result-title hdrlnk') #get the title/link for the entry
 
         car = requests.get(url) #get the web page for the car 
         car_soup = BeautifulSoup(car.text, 'lxml') #convert the webpage to a soup object
@@ -73,7 +68,7 @@ def scrape_url(url):
         body = car_soup.find('section', id = 'postingbody').text #body test of posting
         all_attrs = car_soup.find_all('p', class_='attrgroup') #all of the vehicle attribute groups
         make = all_attrs[0].b.text #first attribute group is the title
-        print(make)
+
         attrs = all_attrs[1].find_all('span') #the rest of the attributes are grouped together
         attrs = [attr.text for attr in attrs] #convert attributes to a list
 
