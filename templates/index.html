@@ -14,7 +14,10 @@
 <body>
  <div class="login">
 	<h1>Craigslist Vehicle Price Estimator</h1>
-
+	Enter a Craigslist vehicle posting url for an estimate of the market value
+	<br>
+	<br>
+	
      <!-- Main Input For Receiving Query to our ML -->
     <form action="{{ url_for('predict')}}"method="post">
     	<input type="text" name="url" placeholder="Craigslist posting url" required="required" size = 75/>
